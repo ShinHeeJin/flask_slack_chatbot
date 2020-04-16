@@ -15,6 +15,8 @@ def todos():
 
 @api.route('/test', methods=['POST'])
 def test():
-    data = request.get_json()
+    res = request.form['text']
+
+    
     return jsonify(data)
 

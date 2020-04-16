@@ -1,12 +1,14 @@
 from flask import jsonify
 from flask import request
 import requests
-
+from . import api
 
 @api.route("/todos", methods=['GET', 'POST'])
 def todos():
     if request.method=='POST':
-        pass
+        res = requests.post('https://hooks.slack.com/services/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', json={
+            'text' : 'Hello world'
+        }, headers={ 'Content-Type' : 'application/json' })
     elif request.method=='GET':
         pass
 
@@ -17,6 +19,6 @@ def todos():
 def test():
     res = request.form['text']
 
-    
-    return jsonify(data)
+    print(res)
+    return jsonify(res)
 
